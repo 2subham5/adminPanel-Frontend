@@ -16,9 +16,9 @@ function Hospitals({ userType, userName, setUserName }) {
   const [hospitals, setHospitals] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:3000/admin/hospitals", {
+    axios.get("http://localhost:3000/api/auth/getHospitals", {
       headers: {
-        "Authorization": "Bearer " + localStorage.getItem("token")
+        // "Authorization": "Bearer " + localStorage.getItem("token")
       }
     }).then(res => {
       setHospitals(res.data);
@@ -34,13 +34,14 @@ function Hospitals({ userType, userName, setUserName }) {
         <Typography variant="h3" className="hospitals-title">
           Our Hospitals
         </Typography>
-        <Grid container spacing={3} className="hospitals-grid">
+        {/* <Grid container spacing={3} className="hospitals-grid">
           {hospitals.map((hospital) => (
             <Grid item xs={12} sm={6} md={4} key={hospital._id}>
               <Hospital hospital={hospital} />
             </Grid>
           ))}
-        </Grid>
+        </Grid> */}
+        {JSON.stringify(hospitals)}
       </Container>
     </div>
   );

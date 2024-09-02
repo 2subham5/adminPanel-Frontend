@@ -109,10 +109,14 @@ function App() {
          <Route path="/doctor/:docId" element={<Doctor  userType={userType} userName={userName} setUserName={setUserName}/>} />  
          <Route path="/hospital/:hospitalId" element={<Hospital  userType={userType} userName={userName} setUserName={setUserName}/>} />
           <Route path="/addHospital" element={<AddHospital  userType={userType} userName={userName} setUserName={setUserName}/>} /> 
-        <Route path="/addDoctor" element={<AddDoctor  userType={userType} userName={userName} setUserName={setUserName}/>} /> 
-        <Route path="/addEmployee" element={<AddEmployee  userType={userType} userName={userName} setUserName={setUserName}/>} /> 
+        
+       
+
         <Route path="/employees" element={<Employees  userType={userType} userName={userName} setUserName={setUserName}/>} /> 
         <Route path="/employee/:employeeId" element={<Employee  userType={userType} userName={userName} setUserName={setUserName}/>} />
+        {/* mass uploads */}
+        <Route path="/addEmployee" element={<AddEmployee  userType={userType} userName={userName} setUserName={setUserName}/>} /> 
+        <Route path="/addDoctor" element={<AddDoctor  userType={userType} userName={userName} setUserName={setUserName}/>} /> 
 <Route path="/addItem" element={<Item userType={userType} userName={userName} setUserName={setUserName}/>}/>
           <Route path="/login" element={<Login userType={userType} userName={userName} setUserName={setUserName}/>} />
           <Route path="/signup" element={<Signup />} />
