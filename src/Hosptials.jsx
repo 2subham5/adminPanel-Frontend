@@ -21,7 +21,8 @@ function Hospitals({ userType, userName, setUserName }) {
         // "Authorization": "Bearer " + localStorage.getItem("token")
       }
     }).then(res => {
-      setHospitals(res.data);
+      // as the data array contains the info of hospital 
+      setHospitals(res.data.data);
     });
   }, []);
 
@@ -34,14 +35,15 @@ function Hospitals({ userType, userName, setUserName }) {
         <Typography variant="h3" className="hospitals-title">
           Our Hospitals
         </Typography>
-        {/* <Grid container spacing={3} className="hospitals-grid">
+        <Grid container spacing={3} className="hospitals-grid">
           {hospitals.map((hospital) => (
             <Grid item xs={12} sm={6} md={4} key={hospital._id}>
               <Hospital hospital={hospital} />
             </Grid>
           ))}
-        </Grid> */}
-        {JSON.stringify(hospitals)}
+        </Grid>
+     
+        {/* {JSON.stringify(hospitals)} */}
       </Container>
     </div>
   );
@@ -67,13 +69,19 @@ function Hospital({ hospital }) {
             {hospital.name}
           </Typography>
         }
-        subheader={
-          <Typography variant="body2" className="hospital-address">
-            {hospital.address}
+      
+        subheader = {
+          <>
+         <Typography variant="body2" className="hospital-address">
+            {hospital.hospitalId}
           </Typography>
+          <Typography variant="body2" className="hospital-address">
+            {hospital.hospitalType}
+          </Typography>
+          </>
         }
       />
-      <CardContent className="hospital-card-content">
+      {/* <CardContent className="hospital-card-content">
         <Typography variant="subtitle1" gutterBottom>
           Our Doctors:
         </Typography>
@@ -102,7 +110,7 @@ function Hospital({ hospital }) {
         >
           View All Doctors
         </Button>
-      </CardActions>
+      </CardActions> */}
     </Card>
   );
 }
