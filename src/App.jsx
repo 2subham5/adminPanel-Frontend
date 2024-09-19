@@ -10,6 +10,11 @@ import Doctors from './Doctors';
 import Patients from './Patients';
 import AddDoctor from './AddDoctor';
 import AddHospital from './AddHospital';
+// labs
+import Labs from './Labs';
+import Lab from './Lab';
+import UpdateCardLab from './UpdateCardLab';
+import AddLab from './AddLab';
 // import AddPatients from './users/AddPatients';
 import Hospital from './Hospital';
 import Doctor from './Doctor';
@@ -109,8 +114,12 @@ function App() {
          <Route path="/doctor/:docId" element={<Doctor  userType={userType} userName={userName} setUserName={setUserName}/>} />  
          <Route path="/hospital/:hospitalId" element={<Hospital  userType={userType} userName={userName} setUserName={setUserName}/>} />
           <Route path="/addHospital" element={<AddHospital  userType={userType} userName={userName} setUserName={setUserName}/>} /> 
-        
-       
+        {/* labs */}
+        <Route path="/labs" element={<Labs  userType={userType} userName={userName} setUserName={setUserName}/>} />
+        <Route path="/lab/:hospitalId" element={<Lab  userType={userType} userName={userName} setUserName={setUserName}/>} />
+        <Route path="/hospital/:hospitalId/labs/:labIndex" element={<UpdateCardLab userType={userType} userName={userName} setUserName={setUserName}/>} />
+        <Route path="/lab/add/:hospitalId" element={<AddLab userType={userType} userName={userName} setUserName={setUserName}/>} />
+
 
         <Route path="/employees" element={<Employees  userType={userType} userName={userName} setUserName={setUserName}/>} /> 
         <Route path="/employee/:employeeId" element={<Employee  userType={userType} userName={userName} setUserName={setUserName}/>} />

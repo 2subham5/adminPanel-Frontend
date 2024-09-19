@@ -1,8 +1,8 @@
 
 
 import React, { useEffect, useState } from "react";
-import { 
-  Card, CardContent, CardActions, Button, Typography, 
+import {
+  Card, CardContent, CardActions, Button, Typography,
   Container, Grid, List, ListItem, ListItemText, Divider,
   CardHeader, Avatar
 } from "@mui/material";
@@ -42,7 +42,7 @@ function Hospitals({ userType, userName, setUserName }) {
             </Grid>
           ))}
         </Grid>
-     
+
         {/* {JSON.stringify(hospitals)} */}
       </Container>
     </div>
@@ -69,15 +69,15 @@ function Hospital({ hospital }) {
             {hospital.name}
           </Typography>
         }
-      
-        subheader = {
+
+        subheader={
           <>
-         <Typography variant="body2" className="hospital-address">
-            {hospital.hospitalId}
-          </Typography>
-          <Typography variant="body2" className="hospital-address">
-            {hospital.hospitalType}
-          </Typography>
+            <Typography variant="body2" className="hospital-address">
+              {hospital.hospitalId}
+            </Typography>
+            <Typography variant="body2" className="hospital-address">
+              {hospital.hospitalType}
+            </Typography>
           </>
         }
       />
@@ -111,7 +111,45 @@ function Hospital({ hospital }) {
           View All Doctors
         </Button>
       </CardActions> */}
-    </Card>
+      <CardActions className="hospital-card-actions">
+      <Button
+        size="small"
+        variant="outlined"
+        style={{ color: '#008080' }}
+        onClick={() => navigate(`/hospital/${hospital.hospitalId}`)}
+      >
+        Edit
+      </Button>
+      </CardActions>
+      <Button className="hospital-buttons"
+          size="small" 
+          variant="contained" 
+          onClick={handleViewDoctors}
+          // color="primary"
+          style={{ backgroundColor: '#008080', color: '#ffffff' }}
+        >
+          View All Doctors
+        </Button>
+        <Button className="hospital-buttons"
+          size="small" 
+          variant="contained" 
+          onClick={handleViewDoctors}
+          // color="primary"
+          style={{ backgroundColor: '#008080', color: '#ffffff' }}
+        >
+          View All Labs
+        </Button>
+        <Button className="hospital-buttons"
+          size="small" 
+          variant="contained" 
+          onClick={handleViewDoctors}
+          // color="primary"
+          style={{ backgroundColor: '#008080', color: '#ffffff' }}
+        >
+          View All Ambulance
+        </Button>
+    </Card >
+
   );
 }
 
@@ -136,7 +174,7 @@ function DoctorDetails({ doctorId }) {
 
   return (
     <ListItem className="doctor-item">
-      <ListItemText 
+      <ListItemText
         primary={
           <Typography variant="body1" className="doctor-name">
             {doctor.doctorName}
