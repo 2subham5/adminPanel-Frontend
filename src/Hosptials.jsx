@@ -55,7 +55,9 @@ function Hospital({ hospital }) {
   const handleViewDoctors = () => {
     navigate("/hospital/" + hospital._id + "/doctors");
   };
-
+  const handleViewLabs = () => {
+    navigate("/hospital/" + hospital._id + "/doctors");
+  };
   return (
     <Card className="hospital-card">
       <CardHeader
