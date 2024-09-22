@@ -5,7 +5,7 @@ import { useState } from "react";
 import axios from "axios";
 import Appbar from "./Appbar";
 import { useParams } from "react-router-dom";
-// import "./AddLab.css";
+import "./AddLab.css";
 
 function AddLab({ userType, userName, setUserName }) {
     const [lab, setLab] = useState("");

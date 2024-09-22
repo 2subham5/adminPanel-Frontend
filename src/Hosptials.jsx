@@ -37,17 +37,16 @@ function Hospitals({ userType, userName, setUserName }) {
         </Typography>
         <Grid container spacing={3} className="hospitals-grid">
           {hospitals.map((hospital) => (
-            <Grid item xs={12} sm={6} md={4} key={hospital._id}>
+            <Grid item xs={12} sm={6} md={4} lg={4} key={hospital._id}>
               <Hospital hospital={hospital} />
             </Grid>
           ))}
         </Grid>
-
-        {/* {JSON.stringify(hospitals)} */}
       </Container>
     </div>
   );
 }
+
 
 function Hospital({ hospital }) {
   const navigate = useNavigate();
