@@ -28,12 +28,12 @@ function Ambulances({ userType, userName, setUserName }) {
 
   return (
     <div>
-      {userType === "admin" || userType === "user" ? (
+      {/* {userType === "admin" || userType === "user" ? ( */}
         <Appbar userName={userName} setUserName={setUserName} />
-      ) : null}
+      {/* ) : null} */}
       <Container className="hospitals-container">
         <Typography variant="h3" className="hospitals-title">
-          Our Hospitals
+          Ambulance
         </Typography>
         <Grid container spacing={3} className="hospitals-grid">
           {hospitals.map((hospital) => (

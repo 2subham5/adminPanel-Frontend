@@ -50,7 +50,8 @@ import Edit from './blog/Edit';
 import FullBlog from './blog/FullBlog';
 import './App.css'
 
-
+// Department
+ import Dept from './Dept';
 
 
 
@@ -165,6 +166,9 @@ function App() {
           <Route path="/blog/posts" element={<Blogs userType={userType} userName={userName} setUserName={setUserName} />} />
           <Route path="/blog/edit/:blogId" element={<Edit userType={userType} userName={userName} setUserName={setUserName} />} />
           <Route path="/blog/:blogId" element={<FullBlog userType={userType} userName={userName} setUserName={setUserName} />} />
+
+           {/* Department  */}
+           <Route path="/dept" element={<Dept userType={userType} userName={userName} setUserName={setUserName} />} />
         </Routes>
       </Router>
 

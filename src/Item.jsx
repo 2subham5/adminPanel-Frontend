@@ -63,9 +63,9 @@ function Item({ userType, userName, setUserName }) {
     };
     return (
         <div className="add-doctor-container">
-            {userType === "admin" || userType === "user" ? (
+            {/* {userType === "admin" || userType === "user" ? ( */}
                 <Appbar userName={userName} setUserName={setUserName} />
-            ) : null}
+            {/* ) : null} */}
             <div className="add-doctor-form-container">
                 <Card variant="outlined" className="add-doctor-card">
                     <h2 className="add-doctor-title">Add New Item</h2>

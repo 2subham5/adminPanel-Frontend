@@ -54,9 +54,9 @@ function AddEmployee({ userType, userName, setUserName }) {
 
     return (
         <div className="add-employee-container">
-            {userType === "admin" || userType === "user" ? (
+            {/* {userType === "admin" || userType === "user" ? ( */}
                 <Appbar userName={userName} setUserName={setUserName} />
-            ) : null}
+            {/* ) : null} */}
             <div className="add-employee-form-container">
                 <Card variant="outlined" className="add-employee-card">
                     <h2 className="add-employee-title">Add New Employee</h2>
