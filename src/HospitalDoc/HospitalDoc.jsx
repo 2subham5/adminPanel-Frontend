@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Card from '@mui/material/Card';
 import TextField from '@mui/material/TextField';
-import Appbar from "./Appbar";
+import Appbar from "../Appbar";
 import Button from '@mui/material/Button';
 import { useParams, useNavigate } from "react-router-dom";
 import { Typography, List, ListItem, ListItemText } from "@mui/material";
-import "./Hospital.css";
+import "../Hospital/css/Hospital.css";
 
 function HospitalDoc({ userType, userName, setUserName }) {
   const navigate = useNavigate();

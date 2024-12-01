@@ -134,7 +134,8 @@ function Appbar({ userName, setUserName }) {
           {/* <MenuItem onClick={() => navigate("/patients")}>Patients</MenuItem> */}
           <MenuItem onClick={() => navigate("/hospitals")}>Hospitals</MenuItem>
           <MenuItem onClick={() => navigate("/dept")}>Department </MenuItem>
-          {/* <MenuItem onClick={() => navigate("/addHospital")}>Add Hospital</MenuItem> */}
+          <MenuItem onClick={() => navigate("/addHospital")}>Add Hospital</MenuItem>
+          <MenuItem onClick={() => navigate("/ambulances")}>Ambulances</MenuItem>
           {/* <MenuItem onClick={() => navigate("/addDoctor")}>Add Doctor</MenuItem> */}
           {/* <MenuItem onClick={() => navigate("/addEmployee")}>Add Employee</MenuItem> */}
           {/* <MenuItem onClick={() => navigate("/employees")}>Employees</MenuItem> */}

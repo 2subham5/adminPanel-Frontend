@@ -9,10 +9,10 @@ import {
 import { LocalHospital, School } from "@mui/icons-material";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import Appbar from "./Appbar";
-import "./Hospitals.css";
+import Appbar from "../Appbar";
+import "../Hospital/css/Hospitals.css";
 
-function Labs({ userType, userName, setUserName }) {
+function Ambulances({ userType, userName, setUserName }) {
   const [hospitals, setHospitals] = useState([]);
 
   useEffect(() => {
@@ -33,7 +33,7 @@ function Labs({ userType, userName, setUserName }) {
       {/* ) : null} */}
       <Container className="hospitals-container">
         <Typography variant="h3" className="hospitals-title">
-          Our Hospitals
+          Ambulance
         </Typography>
         <Grid container spacing={3} className="hospitals-grid">
           {hospitals.map((hospital) => (
@@ -83,11 +83,11 @@ function Hospital({ hospital }) {
       />
 <CardContent className="hospital-card-content">
   <Typography variant="subtitle1" gutterBottom>
-    Labs:
+    Ambulance:
   </Typography>
   <List>
   {/* map over labs */}
-    {hospital.labs.map((lab, index) => (
+    {hospital.ambulance.map((lab, index) => (
       <ListItem key={index}>
         <ListItemText primary={lab} />
       </ListItem>
@@ -99,7 +99,7 @@ function Hospital({ hospital }) {
         size="small"
         variant="outlined"
         style={{ color: '#008080' }}
-        onClick={() => navigate(`/lab/${hospital.hospitalId}`)}
+        onClick={() => navigate(`/ambulance/${hospital.hospitalId}`)}
       >
         Edit
       </Button>
@@ -107,7 +107,7 @@ function Hospital({ hospital }) {
         size="small"
         variant="outlined"
         style={{ color: '#008080' }}
-        onClick={() => navigate(`/lab/add/${hospital.hospitalId}`)}
+        onClick={() => navigate(`/ambulance/add/${hospital.hospitalId}`)}
       >
         Add
       </Button>
@@ -120,4 +120,4 @@ function Hospital({ hospital }) {
 
 
 
-export default Labs;
+export default Ambulances;

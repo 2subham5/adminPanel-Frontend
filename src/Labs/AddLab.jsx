@@ -3,23 +3,23 @@ import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import { useState } from "react";
 import axios from "axios";
-import Appbar from "./Appbar";
+import Appbar from "../Appbar";
 import { useParams } from "react-router-dom";
-// import "./AddLab.css";
+import "./css/AddLab.css";
 
-function AddAmbulance({ userType, userName, setUserName }) {
-    const [ambulance, setAmbulance] = useState("");
+function AddLab({ userType, userName, setUserName }) {
+    const [lab, setLab] = useState("");
     const {hospitalId} =useParams();
     // Function to handle adding a new lab
     const handleSubmit = async () => {
-        if (!ambulance) {
+        if (!lab) {
             alert("Please enter a lab name.");
             return;
         }
 
         try {
-            const response = await axios.post(`http://localhost:3000/api/auth/addAmbulance?hospitalId=${hospitalId}`, {
-                ambulance: ambulance,
+            const response = await axios.post(`http://localhost:3000/api/auth/addLabs?hospitalId=${hospitalId}`, {
+                labs: lab,
             }, {
                 headers: {
                     // "Authorization": "Bearer " + localStorage.getItem("token")
@@ -28,7 +28,7 @@ function AddAmbulance({ userType, userName, setUserName }) {
 
             if (response.data.success) {
                 alert("Lab added successfully!");
-                setAmbulance(""); // Clear the input field after successful submission
+                setLab(""); // Clear the input field after successful submission
             } else {
                 alert("Error adding lab: " + response.data.message);
             }
@@ -47,12 +47,12 @@ function AddAmbulance({ userType, userName, setUserName }) {
                 <Card variant="outlined" className="add-lab-card">
                     <h2 className="add-lab-title">Add New Lab</h2>
                     <TextField
-                        onChange={(e) => setAmbulance(e.target.value)}
+                        onChange={(e) => setLab(e.target.value)}
                         fullWidth
-                        label="Ambulance Name"
+                        label="Lab Name"
                         variant="outlined"
                         className="input-field"
-                        value={ambulance}
+                        value={lab}
                     />
                     <Button
                         size="large"
@@ -60,7 +60,7 @@ function AddAmbulance({ userType, userName, setUserName }) {
                         onClick={handleSubmit}
                         className="submit-button"
                     >
-                        Add New Ambulance
+                        Add Lab
                     </Button>
                 </Card>
             </div>
@@ -68,4 +68,4 @@ function AddAmbulance({ userType, userName, setUserName }) {
     );
 }
 
-export default AddAmbulance;
+export default AddLab;

@@ -76,8 +76,8 @@ import {
 import { Person, Healing, Cake } from "@mui/icons-material";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import Appbar from "./Appbar";
-import "./Patients.css";
+import Appbar from "../Appbar";
+import "./css/Patients.css";
 
 function Patients({ userType, userName, setUserName }) {
   const [patients, setPatients] = useState([]);

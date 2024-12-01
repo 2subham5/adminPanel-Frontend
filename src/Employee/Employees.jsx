@@ -88,8 +88,8 @@ import Card from '@mui/material/Card';
 import { Button, Typography } from "@mui/material";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import Appbar from "./Appbar";
-import "./Employees.css";
+import Appbar from "../Appbar";
+import "./css/Employees.css";
 
 function Employees({ userType, userName, setUserName }) {
     const [employees, setEmployees] = useState([]);

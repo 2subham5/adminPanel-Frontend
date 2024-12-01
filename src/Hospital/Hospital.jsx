@@ -3,12 +3,12 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Card from '@mui/material/Card';
 import TextField from '@mui/material/TextField';
-import Appbar from "./Appbar";
+import Appbar from "../Appbar";
 import Button from '@mui/material/Button';
 import { useParams } from "react-router-dom";
 import { Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import "./Hospital.css";
+import "./css/Hospital.css";
 // update single data
 function Hospital({ userType, userName, setUserName }) {
   const navigate = useNavigate();

@@ -2,14 +2,13 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Card from '@mui/material/Card';
 import TextField from '@mui/material/TextField';
-import Appbar from "./Appbar";
+import Appbar from "../Appbar";
 import Button from '@mui/material/Button';
 import { useParams, useNavigate } from "react-router-dom";
 import { Typography, List, ListItem, ListItemText } from "@mui/material";
-import "./Hospital.css";
+import "../Hospital/css/Hospital.css";
 
-
-function Ambulance({ userType, userName, setUserName }) {
+function Lab({ userType, userName, setUserName }) {
   const navigate = useNavigate();
   const [hospital, setHospital] = useState(null);
   const { hospitalId } = useParams();
@@ -34,7 +33,7 @@ function Ambulance({ userType, userName, setUserName }) {
   };
 
   const handleEditClick = (index) => {
-    navigate(`/hospital/${hospitalId}/ambulance/${index}`);
+    navigate(`/hospital/${hospitalId}/labs/${index}`);
   };
   const handleDeleteClick = (index) => {
     // Confirm before deleting
@@ -42,13 +41,13 @@ function Ambulance({ userType, userName, setUserName }) {
     if (!confirmDelete) return;
   
     // Make a DELETE request to the backend
-    axios.delete(`http://localhost:3000/api/auth/deleteAmbulance?hospitalId=${hospitalId}&ambulanceIndex=${index}`)
+    axios.delete(`http://localhost:3000/api/auth/deleteLabs?hospitalId=${hospitalId}&labIndex=${index}`)
       .then((res) => {
         if (res.data.success) {
           // Remove the deleted lab from the frontend state
           setHospital((prevHospital) => ({
             ...prevHospital,
-            labs: prevHospital.ambulance.filter((_, i) => i !== index),
+            labs: prevHospital.labs.filter((_, i) => i !== index),
           }));
         } else {
           console.error("Failed to delete lab:", res.data.message);
@@ -76,10 +75,10 @@ function Ambulance({ userType, userName, setUserName }) {
           <Typography variant="h5" className="hospital-phoneNumber">{hospital.phoneNumber}</Typography>
           <Typography variant="h5" className="hospital-address">{hospital.address}</Typography> */}
           
-          <Typography variant="h6" className="labs-title">Ambulance:</Typography>
+          <Typography variant="h6" className="labs-title">Labs:</Typography>
           <List>
-            {hospital.ambulance && hospital.ambulance.length > 0 ? (
-              hospital.ambulance.map((lab, index) => (
+            {hospital.labs && hospital.labs.length > 0 ? (
+              hospital.labs.map((lab, index) => (
                 <ListItem key={index}>
                   <ListItemText primary={lab} />
                   <Button 
@@ -100,7 +99,7 @@ function Ambulance({ userType, userName, setUserName }) {
                 </ListItem>
               ))
             ) : (
-              <Typography variant="body1">No Ambulance Available</Typography>
+              <Typography variant="body1">No Labs Available</Typography>
             )}
           </List>
         </Card>
@@ -111,5 +110,5 @@ function Ambulance({ userType, userName, setUserName }) {
 }
 
 
-export default Ambulance;
+export default Lab;
 

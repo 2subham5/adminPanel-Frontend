@@ -1,14 +1,12 @@
-
-
 import { TextField } from "@mui/material";
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import { useState } from "react";
 import axios from "axios";
-import Appbar from "./Appbar";
-import "./AddEmployee.css";
+import Appbar from "../Appbar";
+import "../Employee/css/AddEmployee.css";
 
-function AddEmployee({ userType, userName, setUserName }) {
+function AddHospital({ userType, userName, setUserName }) {
     const [name, setName] = useState("");
     const [designation, setDesignation] = useState("");
     const [csvFile, setCsvFile] = useState(null);
@@ -18,13 +16,13 @@ function AddEmployee({ userType, userName, setUserName }) {
         if (csvFile) {
             formData.append("file", csvFile);
             try {
-                await axios.post("http://localhost:3000/api/upload/employee", formData, {
+                await axios.post("http://localhost:3000/api/auth/createHospital", formData, {
                     headers: {
                         // "Authorization": "Bearer " + localStorage.getItem("token"),
                         "Content-Type": "multipart/form-data"
                     }
                 });
-                alert("Employee added successfully from CSV file!");
+                alert("Hospital added successfully from CSV file!");
                 setCsvFile(null);  // Clear the file input after successful submission
             } catch (error) {
                 alert("Error uploading CSV file. Please try again.");
@@ -41,13 +39,13 @@ function AddEmployee({ userType, userName, setUserName }) {
                         "Authorization": "Bearer " + localStorage.getItem("token")
                     }
                 });
-                alert("Employee added successfully!");
+                alert("Hospital added successfully!");
                 // Clear form fields after successful submission
                 setName("");
                 setDesignation("");
             } catch (error) {
-                alert("Error adding employee. Please try again.");
-                console.error("Error adding employee:", error);
+                alert("Error adding Hospital. Please try again.");
+                console.error("Error adding Hospital:", error);
             }
         }
     };
@@ -59,7 +57,7 @@ function AddEmployee({ userType, userName, setUserName }) {
             {/* ) : null} */}
             <div className="add-employee-form-container">
                 <Card variant="outlined" className="add-employee-card">
-                    <h2 className="add-employee-title">Add New Employee</h2>
+                    <h2 className="add-employee-title">Add New Hospital</h2>
                     <TextField
                         onChange={(e) => setName(e.target.value)}
                         fullWidth
@@ -91,7 +89,7 @@ function AddEmployee({ userType, userName, setUserName }) {
                         onClick={handleSubmit}
                         className="submit-button"
                     >
-                         {csvFile ? "Upload CSV" : "Add Employee"}
+                         {csvFile ? "Upload CSV" : "Add Hospital"}
                     </Button>
                 </Card>
             </div>
@@ -99,4 +97,4 @@ function AddEmployee({ userType, userName, setUserName }) {
     );
 }
 
-export default AddEmployee;
+export default AddHospital;

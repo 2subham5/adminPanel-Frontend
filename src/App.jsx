@@ -5,36 +5,36 @@ import Signup from './Signup'
 import Login from './Login';
 
 import Appbar from './Appbar';
-import Hospitals from './Hosptials';
-import Doctors from './Doctors';
-import Patients from './Patients';
-import AddDoctor from './AddDoctor';
-import AddHospital from './AddHospital';
+import Hospitals from './Hospital/Hosptials';
+import Doctors from './Doctor/Doctors';
+import Patients from './Patient/Patients';
+import AddDoctor from './Doctor/AddDoctor';
+import AddHospital from './Hospital/AddHospital';
 // labs
-import Labs from './Labs';
-import Lab from './Lab';
-import UpdateCardLab from './UpdateCardLab';
-import AddLab from './AddLab';
+import Labs from './Labs/Labs';
+import Lab from './Labs/Lab';
+import UpdateCardLab from './Labs/UpdateCardLab';
+import AddLab from './Labs/AddLab';
 // ambulance
-import Ambulances from './Ambulances';
-import Ambulance from './Ambulance';
-import UpdateAmbulance from './UpdateAmbulance';
-import AddAmbulance from './AddAmbulance';
+import Ambulances from './Ambulance/Ambulances';
+import Ambulance from './Ambulance/Ambulance';
+import UpdateAmbulance from './Ambulance/UpdateAmbulance';
+import AddAmbulance from './Ambulance/AddAmbulance';
 
 // import AddPatients from './users/AddPatients';
 
 // hospital Doctors
-import HospitalDocs from './HospitalDocs';
-import HospitalDoc from './HospitalDoc';
-import UpdateHosDoc from './UpdateHosDoc';
-import AddHosDoc from './AddHosDoc';
+import HospitalDocs from './HospitalDoc/HospitalDocs';
+import HospitalDoc from './HospitalDoc/HospitalDoc';
+import UpdateHosDoc from './HospitalDoc/UpdateHosDoc';
+import AddHosDoc from './HospitalDoc/AddHosDoc';
 //
-import Hospital from './Hospital';
-import Doctor from './Doctor';
-import AddEmployee from './AddEmployee';
-import Employees from './Employees';
-import Employee from './Employee';
-import Item from './Item';
+import Hospital from './Hospital/Hospital';
+import Doctor from './Doctor/Doctor';
+import AddEmployee from './Employee/AddEmployee';
+import Employees from './Employee/Employees';
+import Employee from './Employee/Employee';
+import Item from './Item/Item';
 // users
 import USignup from './users/USignup';
 import USignin from './users/USignin';
@@ -51,7 +51,7 @@ import FullBlog from './blog/FullBlog';
 import './App.css'
 
 // Department
- import Dept from './Dept';
+ import Dept from './Department/Dept';
 
 
 

@@ -8,8 +8,8 @@ import {
 import { Person, School } from "@mui/icons-material";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
-import Appbar from "./Appbar";
-import "./Doctors.css";
+import Appbar from "../Appbar";
+import "./css/Doctors.css";
 
 function Doctors({ userType, userName, setUserName }) {
   const [doctors, setDoctors] = useState([]);

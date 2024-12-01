@@ -5,49 +5,24 @@ import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import { useState } from "react";
 import axios from "axios";
-import Appbar from "./Appbar";
-import "./AddDoctor.css";
+import Appbar from "../Appbar";
+import "./css/Item.css";
 
-function AddDoctor({ userType, userName, setUserName }) {
+function Item({ userType, userName, setUserName }) {
     const [name, setName] = useState("");
     const [degree, setDegree] = useState("");
     const [reg, setReg] = useState("");
     const [category, setCategory] = useState("");
     const [image, setImage] = useState("");
     const [csvFile, setCsvFile] = useState(null);
-    // const handleSubmit = async () => {
-    //     try {
-    //         await axios.post("http://localhost:3000/admin/doctor", {
-    //             doctorName: name,
-    //             degree: degree,
-    //             imgLink: image,
-    //             reg: reg,
-    //             category: category,
-    //             published: true,
-    //         }, {
-    //             headers: {
-    //                 "Authorization": "Bearer " + localStorage.getItem("token")
-    //             }
-    //         });
-    //         alert("Doctor added successfully!");
-    //         // Clear form fields after successful submission
-    //         setName("");
-    //         setDegree("");
-    //         setReg("");
-    //         setCategory("");
-    //         setImage("");
-    //     } catch (error) {
-    //         alert("Error adding doctor. Please try again.");
-    //         console.error("Error adding doctor:", error);
-    //     }
-    // };
+   
     const handleSubmit = async () => {
         const formData = new FormData();
         
         if (csvFile) {
             formData.append("file", csvFile);
             try {
-                await axios.post("http://localhost:3000/api/upload/file", formData, {
+                await axios.post("http://localhost:3000/api/upload/items", formData, {
                     headers: {
                         // "Authorization": "Bearer " + localStorage.getItem("token"),
                         "Content-Type": "multipart/form-data"
@@ -73,7 +48,7 @@ function AddDoctor({ userType, userName, setUserName }) {
                         // "Authorization": "Bearer " + localStorage.getItem("token")
                     }
                 });
-                alert("Doctor added successfully!");
+                alert("Item added successfully!");
                 // Clear form fields after successful submission
                 setName("");
                 setDegree("");
@@ -88,12 +63,12 @@ function AddDoctor({ userType, userName, setUserName }) {
     };
     return (
         <div className="add-doctor-container">
-            {userType === "admin" || userType === "user" ? (
+            {/* {userType === "admin" || userType === "user" ? ( */}
                 <Appbar userName={userName} setUserName={setUserName} />
-            ) : null}
+            {/* ) : null} */}
             <div className="add-doctor-form-container">
                 <Card variant="outlined" className="add-doctor-card">
-                    <h2 className="add-doctor-title">Add New Doctor</h2>
+                    <h2 className="add-doctor-title">Add New Item</h2>
                     <TextField
                         onChange={(e) => setName(e.target.value)}
                         fullWidth
@@ -153,7 +128,7 @@ function AddDoctor({ userType, userName, setUserName }) {
                         className="submit-button"
                     
                     >
-                         {csvFile ? "Upload CSV" : "Add Doctor"}
+                         {csvFile ? "Upload CSV" : "Add Item"}
                     </Button>
                 </Card>
             </div>
@@ -161,4 +136,4 @@ function AddDoctor({ userType, userName, setUserName }) {
     );
 }
 
-export default AddDoctor;
+export default Item;

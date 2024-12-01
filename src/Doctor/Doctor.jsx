@@ -152,8 +152,8 @@ import { useParams } from "react-router-dom";
 import { Typography } from "@mui/material";
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import Appbar from "./Appbar";
-import "./Doctor.css";
+import Appbar from "../Appbar";
+import "./css/Doctor.css";
 
 function Doctor({ userType, userName, setUserName }) {
   const [doctor, setDoctor] = useState(null);

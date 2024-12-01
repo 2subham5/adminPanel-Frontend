@@ -9,8 +9,8 @@ import {
 import { LocalHospital, School } from "@mui/icons-material";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import Appbar from "./Appbar";
-import "./Hospitals.css";
+import Appbar from "../Appbar";
+import "./css/Hospitals.css";
 
 function Hospitals({ userType, userName, setUserName }) {
   const [hospitals, setHospitals] = useState([]);
@@ -82,36 +82,7 @@ function Hospital({ hospital }) {
           </>
         }
       />
-      {/* <CardContent className="hospital-card-content">
-        <Typography variant="subtitle1" gutterBottom>
-          Our Doctors:
-        </Typography>
-        <List className="doctor-list">
-          {hospital.purchased.map((doctorId) => (
-            <DoctorDetails key={doctorId} doctorId={doctorId} />
-          ))}
-        </List>
-      </CardContent>
-      <Divider />
-      <CardActions className="hospital-card-actions">
-        <Button 
-          size="small" 
-          variant="outlined" 
-          style={{color:'#008080'}}
-          onClick={() => navigate("/hospital/" + hospital._id)}
-        >
-          Edit
-        </Button>
-        <Button className="hospital-buttons"
-          size="small" 
-          variant="contained" 
-          onClick={handleViewDoctors}
-          // color="primary"
-          style={{ backgroundColor: '#008080', color: '#ffffff' }}
-        >
-          View All Doctors
-        </Button>
-      </CardActions> */}
+  
       <CardActions className="hospital-card-actions">
       <Button
         size="small"
@@ -121,6 +92,7 @@ function Hospital({ hospital }) {
       >
         Edit
       </Button>
+     
       </CardActions>
       <Button className="hospital-buttons"
           size="small" 

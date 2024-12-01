@@ -9,8 +9,8 @@ import {
 import { LocalHospital, School } from "@mui/icons-material";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import Appbar from "./Appbar";
-import "./Hospitals.css";
+import Appbar from "../Appbar";
+import "../Hospital/css/Hospital.css";
 
 function HospitalDocs({ userType, userName, setUserName }) {
   const [hospitals, setHospitals] = useState([]);

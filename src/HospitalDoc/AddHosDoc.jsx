@@ -3,7 +3,7 @@ import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import { useState } from "react";
 import axios from "axios";
-import Appbar from "./Appbar";
+import Appbar from "../Appbar";
 import { useParams } from "react-router-dom";
 
 function AddHosDoc({ userType, userName, setUserName }) {
