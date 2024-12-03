@@ -25,7 +25,7 @@ function AddHosDoc({ userType, userName, setUserName }) {
 
     try {
       const response = await axios.post(
-        `http://localhost:3000/api/auth/addDoctor?hospitalId=${hospitalId}`, 
+        `${import.meta.env.VITE_API_BASE_URL}${import.meta.env.VITE_ADD_DOCTOR}?hospitalId=${hospitalId}`, 
         {
           doctorName,
           doctorUsername,

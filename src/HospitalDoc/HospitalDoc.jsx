@@ -15,7 +15,7 @@ function HospitalDoc({ userType, userName, setUserName }) {
   console.log(hospitalId);
 
   useEffect(() => {
-    axios.get(`http://localhost:3000/api/auth/getHospitalsById?hospitalId=${hospitalId}`, {
+    axios.get(`${import.meta.env.VITE_API_BASE_URL}${import.meta.env.VITE_GET_HOSPITAL_BY_ID}?hospitalId=${hospitalId}`, {
       headers: {
         // Authorization: "Bearer " + localStorage.getItem("token"),
       },
@@ -39,7 +39,7 @@ function HospitalDoc({ userType, userName, setUserName }) {
 
     // Make a DELETE request to the backend
     axios
-      .delete(`http://localhost:3000/api/auth/deleteDoctor?hospitalId=${hospitalId}&doctorUsername=${doctorUsername}`)
+      .delete(`${import.meta.env.VITE_API_BASE_URL}${import.meta.env.VITE_DELETE_DOCTOR}?hospitalId=${hospitalId}&doctorUsername=${doctorUsername}`)
       .then((res) => {
         if (res.data.success) {
           // Remove the deleted doctor from the frontend state

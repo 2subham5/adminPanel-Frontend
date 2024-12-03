@@ -70,7 +70,7 @@ function Login({ userType, userName, setUserName }) {
                 <br />
                 <Button size={"large "} variant="contained"
                     onClick={async () => {
-                        const response = await axios.post("http://localhost:3000/admin/login", {
+                        const response = await axios.post(`${import.meta.env.VITE_ADMIN_LOGIN}`, {
                             username: email,
                             password: password
                         })

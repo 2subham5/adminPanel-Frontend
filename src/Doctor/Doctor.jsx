@@ -160,7 +160,7 @@ function Doctor({ userType, userName, setUserName }) {
   const { docId } = useParams();
 
   useEffect(() => {
-    axios.get(`http://localhost:3000/admin/doctor/${docId}`, {
+    axios.get(`${import.meta.env.VITE_DOCTOR_ADMIN}${docId}`, {
       headers: {
         Authorization: "Bearer " + localStorage.getItem("token"),
       },
@@ -221,7 +221,7 @@ function UpdateCard({ doctor, onUpdate }) {
   };
 
   const handleSubmit = () => {
-    axios.put(`http://localhost:3000/admin/doctor/${docId}`, updatedDoc, {
+    axios.put(`${import.meta.env.VITE_DOCTOR_ADMIN}${docId}`, updatedDoc, {
       headers: {
         Authorization: "Bearer " + localStorage.getItem("token"),
       },

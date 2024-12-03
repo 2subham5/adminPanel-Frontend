@@ -20,7 +20,7 @@ function UpdateHosDoc({ onUpdate }) {
 
   useEffect(() => {
     // Fetch the hospital data and pre-fill the form with the selected doctor's details
-    axios.get(`http://localhost:3000/api/auth/getHospitalsById?hospitalId=${hospitalId}`)
+    axios.get(`${import.meta.env.VITE_API_BASE_URL}${import.meta.env.VITE_GET_HOSPITAL_BY_ID}?hospitalId=${hospitalId}`)
       .then((res) => {
         setHospital(res.data.data);
         const doctor = res.data.data.listOfDoctors.find(doc => doc.doctorUsername === doctorUsername);
@@ -51,7 +51,7 @@ function UpdateHosDoc({ onUpdate }) {
   const handleSubmit = () => {
     // Send the updated doctor data to the backend
     axios.put(
-      `http://localhost:3000/api/auth/updateDoctor?hospitalId=${hospitalId}&doctorUsername=${doctorUsername}`, 
+      `${import.meta.env.VITE_API_BASE_URL}${import.meta.env.VITE_UPDATE_DOCTOR}?hospitalId=${hospitalId}&doctorUsername=${doctorUsername}`, 
       updatedDoctor,  // Send the updated doctor object
       {
         headers: {

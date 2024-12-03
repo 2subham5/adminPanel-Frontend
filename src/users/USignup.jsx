@@ -92,7 +92,7 @@ function USignup() {
                         //     .then(res => res.json())
                         //     .then((data) =>{ localStorage.setItem("token", data.token)
                         //            });
-                      const response = await  axios.post("http://localhost:3000/user/signup",{
+                      const response = await  axios.post(`${import.meta.env.VITE_USER_SIGN}`,{
                             // username is the key of server side and email is what we have used in frontend
                             name: name,
                             username: email,

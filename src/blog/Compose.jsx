@@ -10,7 +10,7 @@ const Compose = ({ userType, userName, setUserName }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post("http://localhost:3000/blog/compose", {
+            await axios.post(`${import.meta.env.VITE_BLOG}${import.meta.env.VITE_BLOG_COMPOSE}`, {
                 title: postTitle,
                 content: postBody
             }, {

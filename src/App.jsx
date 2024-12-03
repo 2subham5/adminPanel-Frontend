@@ -140,11 +140,11 @@ function App() {
           <Route path="/ambulance/:hospitalId" element={<Ambulance userType={userType} userName={userName} setUserName={setUserName} />} />
           <Route path="/hospital/:hospitalId/ambulance/:ambulanceIndex" element={<UpdateAmbulance userType={userType} userName={userName} setUserName={setUserName} />} />
           <Route path="/ambulance/add/:hospitalId" element={<AddAmbulance userType={userType} userName={userName} setUserName={setUserName} />} />
-{/* HospitalDoctors */}
-<Route path="/hosDocs" element={<HospitalDocs userType={userType} userName={userName} setUserName={setUserName} />} />
-<Route path="/hospitaldoc/:hospitalId" element={<HospitalDoc userType={userType} userName={userName} setUserName={setUserName} />} />
-<Route path="/hospital/editDoctor/:hospitalId/:doctorUsername" element={<UpdateHosDoc userType={userType} userName={userName} setUserName={setUserName} />} />
-<Route path="/hospitalDoc/add/:hospitalId" element={<AddHosDoc userType={userType} userName={userName} setUserName={setUserName} />} />
+          {/* HospitalDoctors */}
+          <Route path="/hosDocs" element={<HospitalDocs userType={userType} userName={userName} setUserName={setUserName} />} />
+          <Route path="/hospitaldoc/:hospitalId" element={<HospitalDoc userType={userType} userName={userName} setUserName={setUserName} />} />
+          <Route path="/hospital/editDoctor/:hospitalId/:doctorUsername" element={<UpdateHosDoc userType={userType} userName={userName} setUserName={setUserName} />} />
+          <Route path="/hospitalDoc/add/:hospitalId" element={<AddHosDoc userType={userType} userName={userName} setUserName={setUserName} />} />
           <Route path="/employees" element={<Employees userType={userType} userName={userName} setUserName={setUserName} />} />
           <Route path="/employee/:employeeId" element={<Employee userType={userType} userName={userName} setUserName={setUserName} />} />
           {/* mass uploads */}

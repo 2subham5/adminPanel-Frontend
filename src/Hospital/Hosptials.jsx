@@ -16,7 +16,7 @@ function Hospitals({ userType, userName, setUserName }) {
   const [hospitals, setHospitals] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:3000/api/auth/getHospitals", {
+    axios.get(`${import.meta.env.VITE_API_BASE_URL}${import.meta.env.VITE_GET_HOSPITALS}`, {
       headers: {
         // "Authorization": "Bearer " + localStorage.getItem("token")
       }
@@ -130,7 +130,7 @@ function DoctorDetails({ doctorId }) {
   const [doctor, setDoctor] = useState(null);
 
   useEffect(() => {
-    axios.get(`http://localhost:3000/admin/doctor/${doctorId}`, {
+    axios.get(`${import.meta.env.VITE_DOCTOR_ADMIN}/${doctorId}`, {
       headers: {
         "Authorization": "Bearer " + localStorage.getItem("token")
       }

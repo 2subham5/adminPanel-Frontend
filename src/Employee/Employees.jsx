@@ -95,7 +95,7 @@ function Employees({ userType, userName, setUserName }) {
     const [employees, setEmployees] = useState([]);
 
     useEffect(() => {
-        axios.get("http://localhost:3000/admin/employees", {
+        axios.get(`${import.meta.env.VITE_EMPLOYEES_ADMIN}`, {
             headers: {
                 "Authorization": "Bearer " + localStorage.getItem("token")
             }

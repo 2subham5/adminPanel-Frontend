@@ -18,7 +18,7 @@ function AddLab({ userType, userName, setUserName }) {
         }
 
         try {
-            const response = await axios.post(`http://localhost:3000/api/auth/addLabs?hospitalId=${hospitalId}`, {
+            const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}${import.meta.env.VITE_ADD_LABS}?hospitalId=${hospitalId}`, {
                 labs: lab,
             }, {
                 headers: {

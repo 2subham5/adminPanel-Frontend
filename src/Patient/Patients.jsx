@@ -83,7 +83,7 @@ function Patients({ userType, userName, setUserName }) {
   const [patients, setPatients] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:3000/admin/patients", {
+    axios.get(`${import.meta.env.VITE_ADMIN_PATIENTS}`, {
       headers: {
         "Authorization": "Bearer " + localStorage.getItem("token")
       }

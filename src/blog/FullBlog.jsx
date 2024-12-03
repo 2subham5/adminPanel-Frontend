@@ -13,7 +13,7 @@ function FullBlog({ userType, userName, setUserName }) {
   const { docId } = useParams();
 
   useEffect(() => {
-    axios.get(`http://localhost:3000/blog/${docId}`, {
+    axios.get(`${import.meta.env.VITE_BLOG}${docId}`, {
       headers: {
         Authorization: "Bearer " + localStorage.getItem("token"),
       },

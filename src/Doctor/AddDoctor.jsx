@@ -47,7 +47,7 @@ function AddDoctor({ userType, userName, setUserName }) {
         if (csvFile) {
             formData.append("file", csvFile);
             try {
-                await axios.post("http://localhost:3000/api/upload/file", formData, {
+                await axios.post(`${import.meta.env.VITE_DOCTOR_UPLOAD_FILE}`, formData, {
                     headers: {
                         // "Authorization": "Bearer " + localStorage.getItem("token"),
                         "Content-Type": "multipart/form-data"
@@ -61,7 +61,7 @@ function AddDoctor({ userType, userName, setUserName }) {
             }
         } else {
             try {
-                await axios.post("http://localhost:3000/admin/doctor", {
+                await axios.post(`${import.meta.env.VITE_DOCTOR_ADMIN}`, {
                     doctorName: name,
                     degree: degree,
                     imgLink: image,

@@ -16,7 +16,7 @@ function AddHospital({ userType, userName, setUserName }) {
         if (csvFile) {
             formData.append("file", csvFile);
             try {
-                await axios.post("http://localhost:3000/api/auth/createHospital", formData, {
+                await axios.post(`${import.meta.env.VITE_API_BASE_URL}${import.meta.env.VITE_CREATE_HOSPITAL}`, formData, {
                     headers: {
                         // "Authorization": "Bearer " + localStorage.getItem("token"),
                         "Content-Type": "multipart/form-data"
@@ -30,7 +30,7 @@ function AddHospital({ userType, userName, setUserName }) {
             }
         } else {
             try {
-                await axios.post("http://localhost:3000/admin/employee", {
+                await axios.post(`${import.meta.env.VITE_EMPLOYEE_ADMIN}`, {
                     name: name,
                     designation: designation,
                     published: true,

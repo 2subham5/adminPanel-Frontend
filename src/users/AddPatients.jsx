@@ -92,7 +92,7 @@ function AddPatients({ userType, userName, setUserName }) {
                 <Button size={"large "} variant="contained"
                     onClick={async() => {
                    
-                        await axios.post(`http://localhost:3000/user/${userId}/patient`,{
+                        await axios.post(`${import.meta.env.VITE_USER}${userId}${import.meta.env.VITE_patient}`,{
                             //left is backend var : frontvar
                             patientName:name,
                             age:age,
