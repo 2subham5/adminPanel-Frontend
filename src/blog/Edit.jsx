@@ -12,7 +12,7 @@ function Edit({ userType, userName, setUserName }) {
   const { blogId } = useParams();
 
   useEffect(() => {
-    axios.get(`http://localhost:3000/blog/post/${blogId}`, {
+    axios.get(`${import.meta.env.VITE_BLOG}${import.meta.env.VITE_BLOG_POST}/${blogId}`, {
       headers: {
         Authorization: "Bearer " + localStorage.getItem("token"),
       },
@@ -66,7 +66,7 @@ function UpdateCard({ content }) {
   };
 
   const handleSubmit = () => {
-    axios.put(`http://localhost:3000/blog/edit/${blogId}`, updatedBlog, {
+    axios.put(`${import.meta.env.VITE_BLOG}${import.meta.env.VITE_BLOG_EDIT}/${blogId}`, updatedBlog, {
       headers: {
         Authorization: "Bearer " + localStorage.getItem("token"),
       },
@@ -84,7 +84,7 @@ function UpdateCard({ content }) {
   const handleDelete = async () => {
     if (window.confirm("Are you sure you want to delete this blog post?")) {
       try {
-        await axios.delete(`http://localhost:3000/blog/${blogId}`, {
+        await axios.delete(`${import.meta.env.VITE_BLOG}/${blogId}`, {
           headers: {
             "Authorization": "Bearer " + localStorage.getItem("token")
           }

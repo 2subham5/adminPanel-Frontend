@@ -16,7 +16,7 @@ function Ambulance({ userType, userName, setUserName }) {
   console.log(hospitalId);
 
   useEffect(() => {
-    axios.get(`http://localhost:3000/api/auth/getHospitalsById?hospitalId=${hospitalId}`, {
+    axios.get(`${import.meta.env.VITE_API_BASE_URL}${import.meta.env.VITE_GET_HOSPITAL_BY_ID}?hospitalId=${hospitalId}`, {
       headers: {
         // Authorization: "Bearer " + localStorage.getItem("token"),
       },
@@ -42,7 +42,7 @@ function Ambulance({ userType, userName, setUserName }) {
     if (!confirmDelete) return;
   
     // Make a DELETE request to the backend
-    axios.delete(`http://localhost:3000/api/auth/deleteAmbulance?hospitalId=${hospitalId}&ambulanceIndex=${index}`)
+    axios.delete(`${import.meta.env.VITE_API_BASE_URL}${import.meta.env.VITE_DELETE_AMBULANCE}?hospitalId=${hospitalId}&ambulanceIndex=${index}`)
       .then((res) => {
         if (res.data.success) {
           // Remove the deleted lab from the frontend state

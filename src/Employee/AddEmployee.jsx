@@ -18,7 +18,7 @@ function AddEmployee({ userType, userName, setUserName }) {
         if (csvFile) {
             formData.append("file", csvFile);
             try {
-                await axios.post("http://localhost:3000/api/upload/employee", formData, {
+                await axios.post(`${import.meta.env.VITE_EMPLOYEE_UPLOAD}`, formData, {
                     headers: {
                         // "Authorization": "Bearer " + localStorage.getItem("token"),
                         "Content-Type": "multipart/form-data"
@@ -32,7 +32,7 @@ function AddEmployee({ userType, userName, setUserName }) {
             }
         } else {
             try {
-                await axios.post("http://localhost:3000/admin/employee", {
+                await axios.post(`${import.meta.env.VITE_EMPLOYEE_ADMIN}`, {
                     name: name,
                     designation: designation,
                     published: true,

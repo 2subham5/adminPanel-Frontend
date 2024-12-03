@@ -16,7 +16,7 @@ function Doctors({ userType, userName, setUserName }) {
   const { hospitalId } = useParams();
 
   useEffect(() => {
-    axios.get("http://localhost:3000/admin/doctors", {
+    axios.get(`${import.meta.env.VITE_DOCTORS_ADMIN}`, {
       headers: {
         "Authorization": "Bearer " + localStorage.getItem("token")
       }
@@ -29,7 +29,7 @@ function Doctors({ userType, userName, setUserName }) {
 
   const addToHospital = async (doctorId) => {
     try {
-      const response = await axios.put(`http://localhost:3000/admin/hospital/${hospitalId}/adddoctor`, { doctorId }, {
+      const response = await axios.put(`${import.meta.env.VITE_HOSPITAL_ADMIN}${hospitalId}${import.meta.env.VITE_ADD_DOCTOR}`, { doctorId }, {
         headers: {
           "Authorization": "Bearer " + localStorage.getItem("token")
         }

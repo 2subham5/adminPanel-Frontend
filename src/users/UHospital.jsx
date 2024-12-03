@@ -21,7 +21,7 @@ function UHospital({ userType, userName, setUserName }) {
     //             setCourses(data);
     //         })
     //     })
-     axios.get("http://localhost:3000/user/hospitals",{
+     axios.get(`${import.meta.env.VITE_USER_HOSPITALS}`,{
             headers:{
                 "Authorization": "Bearer " + localStorage.getItem("token")
             }
@@ -85,7 +85,7 @@ export function Course (props){
         const [doctor, setDoctor] = useState(null);
         console.log("doctorDetails")
         useEffect(() => {
-            axios.get(`http://localhost:3000/user/doctor/${doctorId}`, {
+            axios.get(`${import.meta.env.VITE_USER_DOCTOR}/${doctorId}`, {
                 headers: {
                     "Authorization": "Bearer " + localStorage.getItem("token")
                 }

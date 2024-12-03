@@ -22,7 +22,7 @@ function Item({ userType, userName, setUserName }) {
         if (csvFile) {
             formData.append("file", csvFile);
             try {
-                await axios.post("http://localhost:3000/api/upload/items", formData, {
+                await axios.post(`${import.meta.env.VITE_ITEM_UPLOAD}`, formData, {
                     headers: {
                         // "Authorization": "Bearer " + localStorage.getItem("token"),
                         "Content-Type": "multipart/form-data"
@@ -36,7 +36,7 @@ function Item({ userType, userName, setUserName }) {
             }
         } else {
             try {
-                await axios.post("http://localhost:3000/admin/doctor", {
+                await axios.post(`${import.meta.env.VITE_DOCTOR_ADMIN}`, {
                     doctorName: name,
                     degree: degree,
                     imgLink: image,

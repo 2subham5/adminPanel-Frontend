@@ -16,7 +16,7 @@ function Hospital({ userType, userName, setUserName }) {
   const { hospitalId } = useParams();
 console.log(hospitalId);
   useEffect(() => {
-    axios.get(`http://localhost:3000/api/auth/getHospitalsById?hospitalId=${hospitalId}`, {
+    axios.get(`${import.meta.env.VITE_API_BASE_URL}${import.meta.env.VITE_GET_HOSPITAL_BY_ID}?hospitalId=${hospitalId}`, {
       headers: {
         // Authorization: "Bearer " + localStorage.getItem("token"),
       },
@@ -75,7 +75,7 @@ function UpdateCard({ hospital, onUpdate }) {
   };
 
   const handleSubmit = () => {
-    axios.post(`http://localhost:3000/api/auth/update?hospitalId=${hospitalId}`, updatedHospital, {
+    axios.post(`${import.meta.env.VITE_API_BASE_URL}${import.meta.env.VITE_HOSPITAL_UPDATE}?hospitalId=${hospitalId}`, updatedHospital, {
       headers: {
         Authorization: "Bearer " + localStorage.getItem("token"),
       },

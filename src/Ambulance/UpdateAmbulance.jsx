@@ -14,7 +14,7 @@ function UpdateAmbulance({ onUpdate }) {
 
   useEffect(() => {
     // Fetch the hospital data
-    axios.get(`http://localhost:3000/api/auth/getHospitalsById?hospitalId=${hospitalId}`)
+    axios.get(`${import.meta.env.VITE_API_BASE_URL}${import.meta.env.VITE_GET_HOSPITAL_BY_ID}?hospitalId=${hospitalId}`)
       .then((res) => {
         setHospital(res.data.data);
         setUpdatedLab(res.data.data.ambulance[ambulanceIndex] || '');  // Initialize updatedLab with the current lab value
@@ -36,7 +36,7 @@ function UpdateAmbulance({ onUpdate }) {
       if (hospital.ambulance && ambulanceIndex >= 0 && ambulanceIndex < hospital.ambulance.length) {
         // Use the updatedLab from the state instead of fetching it again
         axios.put(
-          `http://localhost:3000/api/auth/updateAmbulance?hospitalId=${hospitalId}&ambulanceIndex=${ambulanceIndex}`, 
+          `${import.meta.env.VITE_API_BASE_URL}${import.meta.env.VITE_UPDATE_AMBULANCE}?hospitalId=${hospitalId}&ambulanceIndex=${ambulanceIndex}`, 
           { ambulance: updatedLab },  // Send the updated lab from the state
           {
             headers: {

@@ -13,7 +13,7 @@ function Employee({ userType, userName, setUserName }) {
   const { employeeId } = useParams();
 
   useEffect(() => {
-    axios.get(`http://localhost:3000/admin/employee/${employeeId}`, {
+    axios.get(`${import.meta.env.VITE_EMPLOYEE_ADMIN}/${employeeId}`, {
       headers: {
         Authorization: "Bearer " + localStorage.getItem("token"),
       },
@@ -77,7 +77,7 @@ function Employee({ userType, userName, setUserName }) {
   };
 
   const handleSubmit = () => {
-        axios.put(`http://localhost:3000/admin/employee/${employeeId}`, updatedDoc, {
+        axios.put(`${import.meta.env.VITE_EMPLOYEE_ADMIN}/${employeeId}`, updatedDoc, {
           headers: {
             Authorization: "Bearer " + localStorage.getItem("token"),
           },

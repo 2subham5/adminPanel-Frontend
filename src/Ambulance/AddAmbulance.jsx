@@ -18,14 +18,14 @@ function AddAmbulance({ userType, userName, setUserName }) {
         }
 
         try {
-            const response = await axios.post(`http://localhost:3000/api/auth/addAmbulance?hospitalId=${hospitalId}`, {
+            const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}${import.meta.env.VITE_ADD_AMBULANCE}?hospitalId=${hospitalId}`, {
                 ambulance: ambulance,
             }, {
                 headers: {
                     // "Authorization": "Bearer " + localStorage.getItem("token")
                 }
             });
-
+        
             if (response.data.success) {
                 alert("Lab added successfully!");
                 setAmbulance(""); // Clear the input field after successful submission
@@ -36,6 +36,7 @@ function AddAmbulance({ userType, userName, setUserName }) {
             alert("Error adding lab. Please try again.");
             console.error("Error adding lab:", error);
         }
+        
     };
 
     return (

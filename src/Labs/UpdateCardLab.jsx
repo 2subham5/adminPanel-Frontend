@@ -14,7 +14,7 @@ function UpdateCardLab({ onUpdate }) {
 
   useEffect(() => {
     // Fetch the hospital data
-    axios.get(`http://localhost:3000/api/auth/getHospitalsById?hospitalId=${hospitalId}`)
+    axios.get(`${import.meta.env.VITE_API_BASE_URL}${import.meta.env.VITE_GET_HOSPITAL_BY_ID}?hospitalId=${hospitalId}`)
       .then((res) => {
         setHospital(res.data.data);
         setUpdatedLab(res.data.data.labs[labIndex] || '');  // Initialize updatedLab with the current lab value
@@ -36,7 +36,7 @@ function UpdateCardLab({ onUpdate }) {
       if (hospital.labs && labIndex >= 0 && labIndex < hospital.labs.length) {
         // Use the updatedLab from the state instead of fetching it again
         axios.put(
-          `http://localhost:3000/api/auth/updateLabs?hospitalId=${hospitalId}&labIndex=${labIndex}`, 
+          `${import.meta.env.VITE_API_BASE_URL}${import.meta.env.VITE_UPDATE_LABS}?hospitalId=${hospitalId}&labIndex=${labIndex}`, 
           { labs: updatedLab },  // Send the updated lab from the state
           {
             headers: {

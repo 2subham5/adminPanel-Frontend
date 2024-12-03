@@ -17,7 +17,7 @@ function UDoctors({ userType, userName, setUserName }) {
     //             setCourses(data);
     //         })
     //     })
-     axios.get("http://localhost:3000/user/doctors",{
+     axios.get(`${import.meta.env.VITE_USER_DOCTORS}`,{
             headers:{
                 "Authorization": "Bearer " + localStorage.getItem("token")
             }

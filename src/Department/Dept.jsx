@@ -16,7 +16,7 @@ function Dept({ userType, userName, setUserName }) {
     const [hospitals, setHospitals] = useState([]);
 
     useEffect(() => {
-        axios.get("http://localhost:3000/api/auth/getHospitals", {
+        axios.get(`${import.meta.env.VITE_BASE_URL}${import.meta.env.VITE_GET_HOSPITALS}`, {
             headers: {
                 // "Authorization": "Bearer " + localStorage.getItem("token")
             }

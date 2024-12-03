@@ -9,7 +9,7 @@ const Blogs = ({ userType, userName, setUserName }) => {
     const [contents, setContent] = useState([]);
 
     useEffect(() => {
-        axios.get("http://localhost:3000/blog/", {
+        axios.get(`${import.meta.env.VITE_BLOG}`, {
             headers: {
                 "Authorization": "Bearer " + localStorage.getItem("token")
             }
