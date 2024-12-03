@@ -14,73 +14,73 @@ import "../Hospital/css/Hospitals.css";
 
 function Dept({ userType, userName, setUserName }) {
     const [hospitals, setHospitals] = useState([]);
-
+  
     useEffect(() => {
-        axios.get(`${import.meta.env.VITE_BASE_URL}${import.meta.env.VITE_GET_HOSPITALS}`, {
-            headers: {
-                // "Authorization": "Bearer " + localStorage.getItem("token")
-            }
-        }).then(res => {
-            // as the data array contains the info of hospital 
-            setHospitals(res.data.data);
-        });
+      axios.get(`${import.meta.env.VITE_API_BASE_URL}${import.meta.env.VITE_GET_HOSPITALS}`, {
+        headers: {
+          // "Authorization": "Bearer " + localStorage.getItem("token")
+        }
+      }).then(res => {
+        // as the data array contains the info of hospital 
+        setHospitals(res.data.data);
+      });
     }, []);
-
+  
     return (
-        <div>
-            {/* {userType === "admin" || userType === "user" ? ( */}
-            <Appbar userName={userName} setUserName={setUserName} />
-            {/* ) : null} */}
-            <Container className="hospitals-container">
-                <Typography variant="h3" className="hospitals-title">
-                    Department
-                </Typography>
-                <Grid container spacing={3} className="hospitals-grid">
-                    {hospitals.map((hospital) => (
-                        <Grid item xs={12} sm={6} md={4} key={hospital._id}>
-                            <Hospital hospital={hospital} />
-                        </Grid>
-                    ))}
-                </Grid>
-
-                {/* {JSON.stringify(hospitals)} */}
-            </Container>
-        </div>
+      <div>
+        {/* {userType === "admin" || userType === "user" ? ( */}
+          <Appbar userName={userName} setUserName={setUserName} />
+        {/* ) : null} */}
+        <Container className="hospitals-container">
+          <Typography variant="h3" className="hospitals-title">
+            Departments
+          </Typography>
+          <Grid container spacing={3} className="hospitals-grid">
+            {hospitals.map((hospital) => (
+              <Grid item xs={12} sm={6} md={4} key={hospital._id}>
+                <Hospital hospital={hospital} />
+              </Grid>
+            ))}
+          </Grid>
+  
+          {/* {JSON.stringify(hospitals)} */}
+        </Container>
+      </div>
     );
-}
-
-function Hospital({ hospital }) {
+  }
+  
+  function Hospital({ hospital }) {
     const navigate = useNavigate();
-
+  
     const handleViewDoctors = () => {
-        navigate("/hospital/" + hospital._id + "/doctors");
+      navigate("/hospital/" + hospital._id + "/doctors");
     };
-
+  
     return (
-        <Card className="hospital-card">
-            <CardHeader
-                avatar={
-                    <Avatar sx={{ bgcolor: '#008080' }}>
-                        <LocalHospital />
-                    </Avatar>
-                }
-                title={
-                    <Typography variant="h6" className="hospital-name">
-                        {hospital.name}
-                    </Typography>
-                }
-
-                subheader={
-                    <>
-                        <Typography variant="body2" className="hospital-address">
-                            {hospital.hospitalId}
-                        </Typography>
-                        <Typography variant="body2" className="hospital-address">
-                            {hospital.hospitalType}
-                        </Typography>
-                    </>
-                }
-            />
+      <Card className="hospital-card">
+        <CardHeader
+          avatar={
+            <Avatar sx={{ bgcolor: '#008080' }}>
+              <LocalHospital />
+            </Avatar>
+          }
+          title={
+            <Typography variant="h6" className="hospital-name">
+              {hospital.name}
+            </Typography>
+          }
+  
+          subheader={
+            <>
+              <Typography variant="body2" className="hospital-address">
+                {hospital.hospitalId}
+              </Typography>
+              <Typography variant="body2" className="hospital-address">
+                {hospital.hospitalType}
+              </Typography>
+            </>
+          }
+        />
             <CardContent className="hospital-card-content">
                 <Typography variant="subtitle1" gutterBottom>
                     Department:
@@ -99,7 +99,7 @@ function Hospital({ hospital }) {
                     size="small"
                     variant="outlined"
                     style={{ color: '#008080' }}
-                    onClick={() => navigate(`/lab/${hospital.hospitalId}`)}
+                    onClick={() => navigate(`/dept/${hospital.hospitalId}`)}
                 >
                     Edit
                 </Button>
@@ -107,7 +107,7 @@ function Hospital({ hospital }) {
                     size="small"
                     variant="outlined"
                     style={{ color: '#008080' }}
-                    onClick={() => navigate(`/lab/add/${hospital.hospitalId}`)}
+                    onClick={() => navigate(`/dept/add/${hospital.hospitalId}`)}
                 >
                     Add
                 </Button>

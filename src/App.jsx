@@ -52,8 +52,9 @@ import './App.css'
 
 // Department
  import Dept from './Department/Dept';
-
-
+import Department from './Department/Department';
+import UpdateDept from './Department/UpdateDept';
+import AddDept from './Department/AddDept';
 
 function App() {
 
@@ -169,6 +170,9 @@ function App() {
 
            {/* Department  */}
            <Route path="/dept" element={<Dept userType={userType} userName={userName} setUserName={setUserName} />} />
+           <Route path="/dept/:hospitalId" element={<Department userType={userType} userName={userName} setUserName={setUserName} />} />
+           <Route path="/hospital/:hospitalId/dept/:deptIndex" element={<UpdateDept userType={userType} userName={userName} setUserName={setUserName} />} />
+           <Route path="/dept/add/:hospitalId" element={<AddDept userType={userType} userName={userName} setUserName={setUserName} />} />
         </Routes>
       </Router>
 
